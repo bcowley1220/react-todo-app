@@ -1,12 +1,11 @@
 import React from 'react';
+import './TodoForm.css';
 
 const todoForm = (props) => {
-
-
   return(
-    <div>
-      <form onSubmit={props.submit}>
-        <div>
+    <div className='formWrapper'>
+      <form onSubmit={props.submit} className='todoForm'>
+        <div className='inputWrapper'>
           <label htmlFor="newTodo">New Task:</label>
           <input type="text" name='newTodo' placeholder='Ex. Buy Milk'/>
         </div>

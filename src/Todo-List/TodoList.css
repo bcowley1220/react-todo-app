@@ -1,0 +1,42 @@
+.mainWrapper {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: "form form" "todo done";
+  background: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.todoFormWrapper {
+  grid-area: form;
+  border-bottom: solid 1px #e9e8e8;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  border-radius: 5px 5px 0px 0px;
+}
+.todoFormWrapper > h1 {
+  color: white;
+}
+.todoListWrapper {
+  grid-area: todo;
+}
+.doneListWrapper {
+  grid-area: done;
+  border-left: solid 1px #e9e8e8;
+}
+.doneListWrapper,
+.todoFormWrapper,
+.todoListWrapper {
+  padding: 1em;
+}
+.todoList {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}

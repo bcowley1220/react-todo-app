@@ -1,0 +1,24 @@
+.task {
+  padding: 1em;
+  border: solid 1px lightgrey;
+  margin: 0.25em;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+.task > p {
+  width: 90%;
+  text-align: start;
+}
+.task > span {
+  width: 1em;
+  height: 1em;
+  /* border: solid 1px lightgrey; */
+  padding: 0.15em;
+  text-align: center;
+}

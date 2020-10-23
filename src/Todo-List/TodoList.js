@@ -1,6 +1,8 @@
 import React from 'react';
 import Task from './Task/Task.js';
 import TodoForm from './TodoForm/TodoForm.js';
+import DoneList from '../Done-List/Done-List.js';
+import './TodoList.css';
 
 class todolist extends React.Component {
   constructor(props){
@@ -14,19 +16,25 @@ class todolist extends React.Component {
       {task: 'Do the dishes', complete: false},
       {task: 'Feed the chickens', complete: false},
       {task: 'Walk the garden', complete: false},
+      {task: 'This is a really really really long string just to see what this would do', complete: false},
     ]
 
   }
 
   submitHandler = (event) => {
     event.preventDefault();
-    console.log(event.target[0].value)
     let newTask = event.target[0].value;
-    console.log(newTask)
     this.setState({
       tasks: [...this.state.tasks, {task: newTask, complete: false}]
     })
     event.target.reset();
+  }
+
+  deleteTaskHandler = (taskIndex) => {
+    const tasks = [...this.state.tasks];
+    tasks.splice(taskIndex, 1);
+    console.log(tasks);
+    this.setState({tasks: tasks});
   }
 
   render() {
@@ -34,26 +42,31 @@ class todolist extends React.Component {
     let taskList = null;
     if (this.state.tasks){
       taskList = (
-        <div>
+        <ul>
         {this.state.tasks.map( (tsk, index) => {
-          return <Task task={tsk.task} complete={tsk.complete} key={index}/>
+          return <Task task={tsk.task} complete={tsk.complete} key={index} delete={() => this.deleteTaskHandler(index)} index={index}/>
         })}
-        </div>
+        </ul>
         
       )
 
     }
     return (
-      <div>
-        <section className="todoForm">
+      <main className='mainWrapper'>
+        <section className="todoFormWrapper">
+          <h1>My Tasks</h1>
           <TodoForm submit={this.submitHandler}/>
         </section>
         <section className="todoListWrapper">
-          <ul className="todoList">
+          <div className="todoList">
+            <h2>Current Tasks</h2>
             {taskList}
-          </ul>
+          </div>
         </section>
-      </div>
+        <section className='doneListWrapper'>
+          <DoneList />
+        </section>
+      </main>
     )
   }
 }
