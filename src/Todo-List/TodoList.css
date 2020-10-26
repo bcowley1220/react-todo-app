@@ -40,3 +40,34 @@
   justify-content: center;
   align-items: center;
 }
+.todoList > ul {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.todoFormWrapper,
+.doneListWrapper {
+  overflow-y: auto;
+}
+.task > p {
+  width: 90%;
+  text-align: start;
+}
+.task > span {
+  width: 1em;
+  height: 1em;
+  padding: 0.15em;
+  text-align: center;
+  transition: ease 0.25s;
+}
+
+.trashWrapper,
+.undoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.25em;
+  width: 1.25em;
+}

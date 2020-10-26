@@ -33,7 +33,7 @@ class todolist extends React.Component {
     event.target.reset();
   }
 
-  deleteTaskHandler = (taskIndex) => {
+  completeTaskHandler = (taskIndex) => {
     let tasks = [...this.state.tasks];
     let compTaskState = [...this.state.completedTasks];
     console.log(compTaskState);
@@ -49,21 +49,19 @@ class todolist extends React.Component {
   undoHandler =(taskIndex) => {
     let undoTasks = [...this.state.completedTasks];
     let tasks = [...this.state.tasks];
-    console.log(undoTasks);
-    console.log(tasks);
-
-
     let undoTask = undoTasks[taskIndex];
-    console.log(undoTask);
 
     tasks = [...tasks, undoTask];
-    console.log(tasks);
-
     this.setState({tasks: tasks});
-    console.log(this.state.completedTasks);
 
     undoTasks.splice(taskIndex, 1);
     this.setState({completedTasks: undoTasks})
+  }
+
+  deleteFinishedTaskHandler = (taskIndex) => {
+    let finishedTasks = [...this.state.completedTasks];
+    finishedTasks.splice(taskIndex, 1);
+    this.setState({completedTasks: finishedTasks});
   }
 
 
@@ -75,7 +73,7 @@ class todolist extends React.Component {
       taskList = (
         <ul>
         {this.state.tasks.map( (tsk, index) => {
-          return <Task task={tsk.task} complete={tsk.complete} key={index} delete={() => this.deleteTaskHandler(index)} index={index}/>
+          return <Task task={tsk.task} complete={tsk.complete} key={index} delete={() => this.completeTaskHandler(index)} index={index}/>
         })}
         </ul>
         
@@ -86,7 +84,7 @@ class todolist extends React.Component {
       completedTaskList = (
         <ul>
         {this.state.completedTasks.map( (tsk, index) => {
-          return <DoneList task={tsk.task} complete={tsk.complete} key={index} undo={() => this.undoHandler(index)} index={index}/>
+          return <DoneList task={tsk.task} complete={tsk.complete} key={index} undo={() => this.undoHandler(index)} delete={() => this.deleteFinishedTaskHandler(index)} index={index}/>
         })}
         </ul>
         
@@ -106,8 +104,10 @@ class todolist extends React.Component {
           </div>
         </section>
         <section className='doneListWrapper'>
+        <div className="todoList">
         <h2>Finished Tasks</h2>
           {completedTaskList}
+        </div>
         </section>
       </main>
     )
