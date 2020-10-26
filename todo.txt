@@ -1,0 +1,15 @@
+10/26/20:
+  - Mobile UX/UI
+    - I normally would have built this mobile first, but wanted to focus more on 
+    functionality than UX/UI initially.
+    - Move task form to the bottom and sticky it
+    - Add flip button to switch between current and finished tasks
+    - adjust width of containers to maximize space
+    - .iconWrapper needs to have it's flex-flow turned to column
+    - Icons need to be make a bit bigger, potentially add in swipe functionality later
+
+  - PWA:
+    - implement in PWA functionality
+  
+  - Host on Github pages
+  
