@@ -2,7 +2,6 @@
   padding: 1em;
   border: solid 1px lightgrey;
   margin: 0.25em;
-  width: 100%;
   max-width: 450px;
   display: flex;
   flex-flow: row nowrap;
@@ -21,4 +20,5 @@
   /* border: solid 1px lightgrey; */
   padding: 0.15em;
   text-align: center;
+  transition: ease 0.25s;
 }

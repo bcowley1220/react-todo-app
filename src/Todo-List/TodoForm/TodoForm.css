@@ -10,6 +10,7 @@
 }
 .inputWrapper > label {
   font-weight: 600;
+  color: white;
 }
 .inputWrapper > input {
   padding: 0.25em;
@@ -23,6 +24,14 @@
   background: white;
   border: none;
   color: #000;
+  font-weight: 600;
+  transition: ease 0.25s;
+}
+.todoForm > button:hover {
+  background: #81ce81;
+}
+.todoForm > button:active {
+  background: #0f0;
 }
 .todoForm > * {
   margin-left: 0.5em;

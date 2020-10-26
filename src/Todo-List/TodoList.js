@@ -17,6 +17,9 @@ class todolist extends React.Component {
       {task: 'Feed the chickens', complete: false},
       {task: 'Walk the garden', complete: false},
       {task: 'This is a really really really long string just to see what this would do', complete: false},
+    ],
+    completedTasks: [
+      {task: 'first completed task', complete: true}
     ]
 
   }
@@ -31,20 +34,59 @@ class todolist extends React.Component {
   }
 
   deleteTaskHandler = (taskIndex) => {
-    const tasks = [...this.state.tasks];
+    let tasks = [...this.state.tasks];
+    let compTaskState = [...this.state.completedTasks];
+    console.log(compTaskState);
+    let compTask = this.state.tasks[taskIndex];
+    compTaskState = [...compTaskState, compTask];
+    console.log(compTaskState);
+    this.setState({completedTasks: compTaskState})
+    console.log(this.state.completedTasks);
     tasks.splice(taskIndex, 1);
-    console.log(tasks);
     this.setState({tasks: tasks});
   }
+
+  undoHandler =(taskIndex) => {
+    let undoTasks = [...this.state.completedTasks];
+    let tasks = [...this.state.tasks];
+    console.log(undoTasks);
+    console.log(tasks);
+
+
+    let undoTask = undoTasks[taskIndex];
+    console.log(undoTask);
+
+    tasks = [...tasks, undoTask];
+    console.log(tasks);
+
+    this.setState({tasks: tasks});
+    console.log(this.state.completedTasks);
+
+    undoTasks.splice(taskIndex, 1);
+    this.setState({completedTasks: undoTasks})
+  }
+
 
   render() {
 
     let taskList = null;
+    let completedTaskList = null;
     if (this.state.tasks){
       taskList = (
         <ul>
         {this.state.tasks.map( (tsk, index) => {
           return <Task task={tsk.task} complete={tsk.complete} key={index} delete={() => this.deleteTaskHandler(index)} index={index}/>
+        })}
+        </ul>
+        
+      )
+
+    }
+    if (this.state.completedTasks){
+      completedTaskList = (
+        <ul>
+        {this.state.completedTasks.map( (tsk, index) => {
+          return <DoneList task={tsk.task} complete={tsk.complete} key={index} undo={() => this.undoHandler(index)} index={index}/>
         })}
         </ul>
         
@@ -64,7 +106,8 @@ class todolist extends React.Component {
           </div>
         </section>
         <section className='doneListWrapper'>
-          <DoneList />
+        <h2>Finished Tasks</h2>
+          {completedTaskList}
         </section>
       </main>
     )
