@@ -9,7 +9,7 @@ const todoForm = (props) => {
           <label htmlFor="newTodo">New Task:</label>
           <input type="text" name='newTodo' placeholder='Ex. Buy Milk'/>
         </div>
-        <button type='submit'>Add!</button>
+        <button type='button'>Add!</button>
       </form>
     </div>
 
