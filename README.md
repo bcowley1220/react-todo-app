@@ -1,3 +1,37 @@
+Welcome to my React Todo App! The instructions to get the environment and application up and running locally reside below. This is a living project that I'll be slowly working on building out new features for as time progresses. I intend to create two seperate forks for this repo eventually that contains the PWA and Native versions of this web app.
+
+It is presently functional using React Hooks, and I included commented out code for the class based functionality. If/when it is needed I will add in Context, but for such a small app there doesn't seem to be a justification to use Contect at this moment. There is still some color scheme work to do, along with implementation of a toggled dark mode... but that is for later. This app was built Mobile-First using CSS @media and a few specific breakpoints.
+
+
+## Mobile View:
+
+![Mobile view of todo application](https://github.com/bcowley1220/react-todo-app/blob/main/assets/screenshots/Mobile1.png?raw=true)
+
+## Tablet View:
+
+![Tablet view of todo application](https://github.com/bcowley1220/react-todo-app/blob/main/assets/screenshots/Tablet1.png?raw=true)
+
+## Desktop View: 
+
+![Desktop view of todo application](https://github.com/bcowley1220/react-todo-app/blob/main/assets/screenshots/Desktop1.png?raw=true)
+
+
+
+
+## Instructions For Install & Running The App
+I am going to assume that you have NPM or some form of package manager installed on your machine. If not, please click the following link and https://nodejs.org/en/download/ and follow the install instructions for NodeJS and NPM.
+
+- Hit the clone repo button and paste that command into your terminal in the parent folder you'd like this project to live.
+- Run the following commands:
+  - npm install
+  - npm start dev
+-If it does not automatically bring up a new window in your default browser, open a new tab in your browser and go to http://localhost:3000/
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
