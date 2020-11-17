@@ -36,12 +36,9 @@ import './TodoList.css';
 //   completeTaskHandler = (taskIndex) => {
 //     let tasks = [...this.state.tasks];
 //     let compTaskState = [...this.state.completedTasks];
-//     console.log(compTaskState);
 //     let compTask = this.state.tasks[taskIndex];
 //     compTaskState = [...compTaskState, compTask];
-//     console.log(compTaskState);
 //     this.setState({completedTasks: compTaskState})
-//     console.log(this.state.completedTasks);
 //     tasks.splice(taskIndex, 1);
 //     this.setState({tasks: tasks});
 //   }
@@ -114,6 +111,7 @@ import './TodoList.css';
 //   }
 // }
 
+//! Functionality w/ React Hooks 
 const TodoList = props => {
 
   const [taskState, setTaskState] = useState( 
@@ -191,22 +189,28 @@ const TodoList = props => {
   return(
     <div>
       <main className='mainWrapper'>
-         <section className="todoFormWrapper">
-           <h1>My Tasks</h1>
-           <TodoForm submit={submitHandler}/>
-         </section>
-         <section className="todoListWrapper">
-           <div className="todoList">
-             <h2>Current Tasks</h2>
-             {taskList}
-           </div>
-         </section>
-         <section className='doneListWrapper'>
-         <div className="todoList">
-         <h2>Finished Tasks</h2>
-           {completedTaskList}
-         </div>
-         </section>
+        <div className="tasksWrapper"> 
+        {/* <h1>My Tasks</h1> */}
+          <section className="todoListWrapper">
+            <div className="todoList">
+              <div className="headerWrapper">
+                <h2>Current Tasks</h2>
+              </div>
+              {taskList}
+            </div>
+          </section>
+          <section className='doneListWrapper'>
+          <div className="todoList">
+            <div className="headerWrapper">
+              <h2>Finished Tasks</h2>
+            </div>
+            {completedTaskList}
+          </div>
+          </section>
+        </div>
+        <section className="todoFormWrapper">
+          <TodoForm submit={submitHandler}/>
+        </section>
        </main>
     </div>
   )
