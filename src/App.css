@@ -3,38 +3,85 @@
   --dark-bg-darkGrey: #121212;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App > div {
+  height: 100%;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (min-width: 999px) {
+  .mainWrapper {
+    width: 75%;
+    height: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 90%;
+    grid-template-areas: "form form" "tasksWrapper tasksWrapper";
+    background: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .tasksWrapper {
+    display: flex;
+    flex-flow: row nowrap;
   }
-  to {
-    transform: rotate(360deg);
+
+  .todoFormWrapper {
+    grid-area: form;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .todoFormWrapper > h1 {
+    color: white;
+  }
+  .todoListWrapper {
+    width: 50%;
+  }
+  .doneListWrapper {
+    width: 50%;
+    border-left: solid 1px #e9e8e8;
+  }
+  .doneListWrapper,
+  .todoFormWrapper,
+  .todoListWrapper {
+    padding: 1em;
+  }
+  .todoList {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .todoList > ul {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .task > p {
+    width: 90%;
+    text-align: start;
+  }
+  .task > span {
+    width: 1em;
+    height: 1em;
+    padding: 0.15em;
+    text-align: center;
+    transition: ease 0.25s;
+  }
+
+  .trashWrapper,
+  .undoWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.25em;
+    width: 1.25em;
+  }
+  .headerWrapper {
+    width: 100%;
   }
 }
 
@@ -44,6 +91,34 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+  .formWrapper {
+    width: 60%;
+  }
+  .inputWrapper {
+    width: 60%;
+    margin-right: 2em;
+  }
+  .todoForm > button {
+    border-radius: 4px;
+  }
+  .task {
+    max-width: 600px;
+    flex-flow: row wrap;
+    width: 75%;
+    word-wrap: break-word;
+  }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 999px) {
+  .mainWrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .todoList > ul {
+    display: flex;
+    flex-flow: column nowrap;
     align-items: center;
   }
 }

@@ -15,30 +15,19 @@
 }
 .inputWrapper > input {
   padding: 0.15em;
-  border-radius: 5px;
+  border-radius: 4px 0 0 4px;
   border: solid 1px lightgrey;
-  height: 70%;
-  width: 100%;
+  height: 80%;
+  width: 97%;
   margin-left: 0.25em;
 }
 .todoForm > button {
-  border-radius: 0 4px 4px 0;
-  background: white;
-  border: none;
-  color: white;
   font-weight: 600;
   transition: ease 0.25s;
   width: 20%;
-  height: 80%;
+  height: 90%;
   grid-area: button-end;
   margin-right: 0.25em;
-  background: #2f8fe5;
-}
-.todoForm > button:hover {
-  background: #81ce81;
-}
-.todoForm > button:active {
-  background: rgba(0, 255, 0, 0.781);
 }
 
 .inputWrapper {
@@ -50,27 +39,43 @@
   flex-flow: column nowrap;
   align-items: start;
 }
+.todoForm > button {
+  border-radius: 0 4px 4px 0;
+  border: solid 1px #81ce81;
+  color: #81ce81;
+  background: white;
+}
+.todoForm > button:hover {
+  border-color: white;
+  background: #81ce81;
+  color: white;
+}
+.todoForm > button:active {
+  border-color: white;
+  color: white;
+  background: #3ece3e;
+}
 
-@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 650px) and (max-width: 999px) {
   .formWrapper {
-    width: 60%;
+    width: 100%;
+  }
+  .todoForm {
+    justify-content: center;
   }
   .inputWrapper {
     width: 60%;
     margin-right: 2em;
+    height: 80%;
+  }
+  .inputWrapper > input {
+    height: 80%;
   }
   .todoForm > button {
     border-radius: 4px;
-    border: solid 1px #81ce81;
-    color: #81ce81;
-    background: white;
+    height: 70%;
   }
-  .todoForm > button:hover {
-    border-color: white;
-    color: white;
-  }
-  .todoForm > button:active {
-    border-color: white;
-    color: white;
-  }
+}
+
+@media only screen and (min-width: 999px) {
 }
