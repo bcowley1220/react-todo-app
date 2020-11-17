@@ -35,3 +35,12 @@
 .checkMarkSVG:active > path {
   fill: #0f0;
 }
+
+@media only screen and (min-width: 650px) {
+  .task {
+    max-width: 600px;
+    flex-flow: row wrap;
+    width: 75%;
+    word-wrap: break-word;
+  }
+}
